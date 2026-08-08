@@ -1,3 +1,5 @@
+//https://cses.fi/problemset/task/1648
+
 //fenwik treeeor BITtree
 
 /*given an array of length n, and Q queries, answer each query.
@@ -40,24 +42,54 @@ therefore , if updating index 5 , also update index 6, 8, 16.
 
 
 all functions which are invertible can be solved using pref arr or fenwik tree . eg AND isnt invertible
+TC: O(log n)
 */
 #include <iostream>
 #include <vector>
 using namespace std;
 
-int pre(int index, vector<int>&fenwick){//to find prefsum of index
-    int ans = 0;
-    while(index>0){
-        ans = ans + fenwick[index];
-        index-= (index&- index);// to find rightmost 1s position
-    } 
+long long pre(int index, vector<long long>& fenwick){
+    long long ans = 0;
+    while(index > 0){
+        ans += fenwick[index];
+        index -= (index & -index);
+    }
     return ans;
 }
 
-void update(int index, int val , vector<int>&fenwik){
-    int n = fenwik.size();
-    while(index<=n){
-        fenwik[index] += val;
-        index += 2^(index &- index);
+void update(int index, long long val, vector<long long>& fenwick){
+    int n = fenwick.size() - 1;
+    while(index <= n){
+        fenwick[index] += val;
+        index += (index & -index);
+    }
+}
+
+int main(){
+    int n, q;
+    cin >> n >> q;
+
+    vector<long long> a(n);
+    vector<long long> fenwick(n + 1, 0);
+
+    for(int i = 0; i < n; i++)
+        cin >> a[i];
+
+    for(int i = 0; i < n; i++)
+        update(i + 1, a[i], fenwick);
+
+    while(q--){
+        int type, c;
+        long long b;
+        cin >> type >> c >> b;
+
+        if(type == 1){
+            long long delta = b - a[c - 1];
+            a[c - 1] = b;
+            update(c, delta, fenwick);
+        }
+        else{
+            cout << pre(b, fenwick) - pre(c - 1, fenwick) << '\n';
+        }
     }
 }
