@@ -23,10 +23,11 @@ Output
 9534330
 
 The key phrase is "largest possible number formed by concatenating all the values." So 3, 30, 34, 5, and 9 must each remain intact; you're only changing their order.*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
-bool compare(string a, string b) {
+bool cmp(string a, string b) {
     return a + b > b + a;
 }
 
@@ -40,7 +41,7 @@ int main() {
         cin >> a[i];
     }
 
-    sort(a.begin(), a.end(), compare);
+    sort(a.begin(), a.end(), cmp);
 
     string ans = "";
 
