@@ -63,4 +63,15 @@ int main() {
         long long new_dp0 = min(dp0, dp1) + y;
 
         long long new_dp1 = min(
-    
+            dp0 + a[i] * x,
+            dp1 + max(0LL, a[i] - a[i - 1]) * x
+        );
+
+        dp0 = new_dp0;
+        dp1 = new_dp1;
+    }
+
+    cout << min(dp0, dp1) << '\n';
+
+    return 0;
+}
