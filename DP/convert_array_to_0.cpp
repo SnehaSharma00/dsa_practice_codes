@@ -36,3 +36,42 @@ Total cost:
 3 + 4 = 7
 
 Therefore, the minimum cost is 7.*/
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    long long x, y;
+
+    cin >> n >> x >> y;
+
+    vector<long long> a(n);
+    for (auto &v : a)
+        cin >> v;
+
+    // First element:
+    // Option 1: directly make it zero
+    long long dp0 = y;
+
+    // Option 2: use range operations
+    long long dp1 = a[0] * x;
+
+    for (int i = 1; i < n; i++) {
+
+        long long new_dp0 = min(dp0, dp1) + y;
+
+        long long new_dp1 = min(
+            dp0 + a[i] * x,
+            dp1 + max(0LL, a[i] - a[i - 1]) * x
+        );
+
+        dp0 = new_dp0;
+        dp1 = new_dp1;
+    }
+
+    cout << min(dp0, dp1) << '\n';
+
+    return 0;
+}
