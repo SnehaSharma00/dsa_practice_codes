@@ -59,7 +59,19 @@ int main() {
     for (int i = 0; i < N - 1; i++)
         cin >> C[i];
 
-   
+    vector<long long> dp(N + 1);
+
+    dp[0] = 0;
+    dp[1] = S[0];
+
+    for (int i = 2; i <= N; i++) {
+        dp[i] = min(
+            dp[i - 1] + s[i - 1],
+            dp[i - 2] + c[i - 2]
+        );
+    }
+
+    cout << dp[N] << endl;
 
     return 0;
 }
