@@ -10,3 +10,17 @@ int happy( int idx, int task, vector<int>&a, vector<int>&b, vector<int>&c, vecto
     return 0;
 }
 
+int main(){
+    int n;
+    cin>>n;
+
+    vector<int> a(n), b(n), c(n);
+    for(int i=0; i<n;i++){
+        cin>>a[i]>>b[i]>>c[i];
+    }
+ vector<vector<int>>dp(3, vector<int>(n, -1));
+ cout<<max({happy(n-1, 0, a, b, c, dp) , happy(n-1, 1, a, b, c, dp), happy(n-1, 2, a, b, c, dp)});
+
+return 0; 
+
+}
