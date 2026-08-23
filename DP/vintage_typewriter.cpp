@@ -42,3 +42,18 @@ Constraints:
 
 1 <= N <= 105
 1 <= S[i] , C[i] <= 109*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    vector<long long> S(N);
+    vector<long long> C(N - 1);
+
+  
+
+    return 0;
+}
