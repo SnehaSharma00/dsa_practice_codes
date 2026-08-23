@@ -66,8 +66,8 @@ int main() {
 
     for (int i = 2; i <= N; i++) {
         dp[i] = min(
-            dp[i - 1] + s[i - 1],
-            dp[i - 2] + c[i - 2]
+            dp[i - 1] + S[i - 1],
+            dp[i - 2] + C[i - 2]
         );
     }
 
