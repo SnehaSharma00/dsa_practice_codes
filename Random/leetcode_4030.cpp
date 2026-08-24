@@ -49,6 +49,18 @@ public:
             int x = c;
             for(int i= 7; i>=0; i--){
                 b += ((x>>i)&1)+'0';
-           
+                
+            }
+            
+        }
+        int l = 0;
+        int r= b.size() -1;
+        while(l<r){
+            if(b[l] != b[r])
+                return false;
+                l++;
+            r--;
+        }
+        return true;
     }
 };
