@@ -41,3 +41,14 @@ Constraints:
 
 1 <= s.length <= 100
 s consists of lowercase English letters.*/
+class Solution {
+public:
+    bool isPalindromic(string s) {
+        string b;
+        for(char c: s){
+            int x = c;
+            for(int i= 7; i>=0; i--){
+                b += ((x>>i)&1)+'0';
+           
+    }
+};
