@@ -67,6 +67,13 @@ int main() {
             cnt = 1;
         }
 
+        if (cnt > L) {
+            cout << "NO\n";
+            return 0;
+        }
+    }
+
+    cout << "YES\n";
 
     return 0;
 }
