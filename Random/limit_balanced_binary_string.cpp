@@ -58,6 +58,15 @@ int main() {
     cin >> L;
     cin >> S;
 
+    int cnt = 1;
+
+    for (int i = 1; i < S.size(); i++) {
+        if (S[i] == S[i - 1]) {
+            cnt++;
+        } else {
+            cnt = 1;
+        }
+
 
     return 0;
 }
