@@ -47,3 +47,11 @@ YES
 
 Explanation:
 Every Subarray greater than size 2 contains atleast 1 ones and 1 zeros*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    return 0;
+}
