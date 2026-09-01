@@ -52,6 +52,12 @@ Every Subarray greater than size 2 contains atleast 1 ones and 1 zeros*/
 using namespace std;
 
 int main() {
+    int L;
+    string S;
+
+    cin >> L;
+    cin >> S;
+
 
     return 0;
 }
