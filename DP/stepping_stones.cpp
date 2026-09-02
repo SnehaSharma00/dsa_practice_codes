@@ -35,3 +35,30 @@ Constraints:
 
 1 <= n <= 105*/
 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    const long long MOD = 1000000007;
+
+    if (n == 1) {
+        cout << 1;
+        return 0;
+    }
+
+    long long prev2 = 1; // dp[1]
+    long long prev1 = 2; // dp[2]
+
+    for (int i = 3; i <= n; i++) {
+        long long curr = (prev1 + prev2) % MOD;
+        prev2 = prev1;
+        prev1 = curr;
+    }
+
+    cout << prev1;
+
+    return 0;
+}
