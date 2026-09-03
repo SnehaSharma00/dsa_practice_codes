@@ -63,3 +63,89 @@ Constraints:
 1 <= F <= 1012
 0 <= Ri <= 109
 0 <= Ci <= 106 (C0 is guaranteed to be 0)*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int N;
+    ll F;
+    cin >> N >> F;
+
+    vector<ll> R(N), C(N);
+
+    for (int i = 0; i < N; i++)
+        cin >> R[i];
+
+    for (int i = 0; i < N; i++)
+        cin >> C[i];
+
+    // Check if we can reach N using only
+    // settlements having radiation <= limit
+    auto canReach = [&](ll limit) -> bool {
+
+        const ll INF = (1LL << 62);
+
+        vector<ll> dp(N, INF);
+
+        // Settlement 1 is our starting point
+        dp[0] = 0;
+
+        for (int j = 1; j < N; j++) {
+
+            // Cannot rest/pass through this settlement
+            if (R[j] > limit)
+                continue;
+
+            for (int i = 0; i < j; i++) {
+
+                if (dp[i] == INF)
+                    continue;
+
+                if (R[i] > limit)
+                    continue;
+
+                ll distance = j - i;
+
+                ll cost = distance * distance + C[j];
+
+                if (dp[i] + cost <= F) {
+                    dp[j] = min(dp[j], dp[i] + cost);
+                }
+            }
+        }
+
+        return dp[N - 1] <= F;
+    };
+
+    // If even with the maximum possible radiation
+    // we cannot reach N
+    ll maxR = *max_element(R.begin(), R.end());
+
+    if (!canReach(maxR)) {
+        cout << -1 << '\n';
+        return 0;
+    }
+
+    // Binary search for minimum possible maximum radiation
+    ll low = R[0];
+    ll high = maxR;
+
+    while (low < high) {
+        ll mid = low + (high - low) / 2;
+
+        if (canReach(mid))
+            high = mid;
+        else
+            low = mid + 1;
+    }
+
+    cout << low << '\n';
+
+    return 0;
+}
