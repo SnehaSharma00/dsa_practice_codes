@@ -3,11 +3,12 @@ using namespace std;
 
 void rec(int n, string &s, vector<string>&ans, int idx){
 if(idx == n){
+    ans.push_back(s);
     return;
 }
 
     for(int i=idx; i<n; i++){
-        ans.push_back(s);
+        
         swap(s[i], s[idx]);
         rec(n, s, ans, idx+1);
         swap(s[i], s[idx]);
