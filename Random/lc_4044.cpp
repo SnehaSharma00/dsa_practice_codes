@@ -49,3 +49,15 @@ Cyclic rotation	Sum of first n / 2 elements	Sum of last n / 2 elements
 [1, 2, 1, 2]	1 + 2 = 3	1 + 2 = 3
 [2, 1, 2, 1]	2 + 1 = 3	2 + 1 = 3
 */
+class Solution {
+public:
+    int countGoodRotations(vector<int>& nums) {
+        int n = nums.size();
+
+        vector<long long> pref(n+1,0);
+        pref[0] = 0;
+        pref[1] = nums[0];
+        
+       
+    }
+};
