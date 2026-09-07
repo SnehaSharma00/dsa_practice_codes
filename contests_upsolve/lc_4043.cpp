@@ -53,3 +53,23 @@ Constraints:
 s only consists of lowercase English letters.
 0 <= k <= n - 1*/
 
+class Solution {
+public:
+    int countRotations(string s, int k) {
+        int n = s.size();
+        int ce = 0;
+
+        for(int i=0; i<n;i++){
+            if(s[i] == s[(i+1)%n]) ce++;
+        }
+        int ans = 0;
+
+        for(int i=0 ; i<n; i++){
+            int be = (s[(i+n-1)%n] == s[i]);
+            int score = ce - be;
+
+            if(score == k) ans++;
+        }
+        return ans;
+    }
+};
