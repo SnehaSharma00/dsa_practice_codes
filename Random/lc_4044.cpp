@@ -58,6 +58,29 @@ public:
         pref[0] = 0;
         pref[1] = nums[0];
         
-       
+       class Solution {
+public:
+    int countGoodRotations(vector<int>& nums) {
+        int n = nums.size();
+
+        vector<long long> pref(n+1,0);
+        pref[0] = 0;
+        pref[1] = nums[0];
+        
+        for(int i=1; i<=n;i++){
+            pref[i] = pref[i-1] + nums[i-1];
+        }
+        long long sum = pref[n];
+
+        int count = 0;
+        
+        for(int i=0; i < n/2; i++){
+            long long windowsum = pref[i+ n/2] - pref[i];
+            long long restsum = sum - windowsum;
+            if(restsum != windowsum) count++;
+        }
+        return count;
+    }
+};
     }
 };
