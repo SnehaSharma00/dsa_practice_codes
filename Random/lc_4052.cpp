@@ -51,3 +51,17 @@ Constraints:
 rowShift.length == colShift.length == n
 0 <= rowShift[i], colShift[i] < n
 */
+
+class Solution {
+public:
+    vector<vector<int>> cyclicShift(int n, vector<vector<int>>& grid, vector<int>& rowShift, vector<int>& colShift) {
+        // int n= grid.size();
+        for(int i=0; i<n; i++){
+            int k= rowShift[i] %n;
+            vector<int> temp(n);
+            for(int j=0; j<n; j++){
+                temp[j] = grid[i][(j+k) %n];
+                
+
+    }
+};
