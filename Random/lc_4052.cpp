@@ -62,6 +62,19 @@ public:
             for(int j=0; j<n; j++){
                 temp[j] = grid[i][(j+k) %n];
                 
-
+            }
+            grid[i] = temp;
+        }
+        for(int j=0; j<n;j++){
+            int k = colShift[j] % n;
+            vector<int> temp(n);
+            for(int i=0; i<n; i++){
+                temp[i] = grid[(i+k) % n][j];
+            }
+            for(int i=0; i< n; i++){
+                grid[i][j] = temp[i];
+            }
+        }
+        return grid;
     }
 };
