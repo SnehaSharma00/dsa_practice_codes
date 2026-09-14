@@ -95,6 +95,6 @@ int main(){
     for(int i=1; i<=n;i++){
         if(vis[i] ==0) dfs(i, adj, vis);
     }
-
+    return ans;
 
 }
