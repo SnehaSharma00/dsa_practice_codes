@@ -11,4 +11,3 @@ vector<array<int, 3>> edges;
 bool cmp(int a, int b){
     return a>b;
 }
-vfds
