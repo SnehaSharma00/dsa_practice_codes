@@ -35,43 +35,45 @@ Explanation: The level order traversal of this graph will be printed as shown ab
 Constraints:
 
 1<=N, M <=105*/
-#include <iostream>
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <algorithm>
-#include <queue>
-using namespace std;
 
-int main() {
-    // your code goes here
-    int n, m;
-    cin>>n>>m;
-    vector<vector<int>>adj(n+1);
-    for(int i=0; i<m;i++){
-        int u, v;
-        cin>>u>>v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-    vector<int>vis(n+1, 0);
 
-    queue<int> q;
-    q.push(1);
+// #include <iostream>
+// #include <cmath>
+// #include <cstdio>
+// #include <vector>
+// #include <algorithm>
+// #include <queue>
+// using namespace std;
 
-    while(!q.empty()){
-        int node = q.front();
-        q.pop();
-        vis[node]++;
-        cout<<node<<" ";
+// int main() {
+//     // your code goes here
+//     int n, m;
+//     cin>>n>>m;
+//     vector<vector<int>>adj(n+1);
+//     for(int i=0; i<m;i++){
+//         int u, v;
+//         cin>>u>>v;
+//         adj[u].push_back(v);
+//         adj[v].push_back(u);
+//     }
+//     vector<int>vis(n+1, 0);
 
-        for(int i=0; i<adj[node].size();i++){
-            int neighbour = adj[node][i];
-            if(vis[neighbour]==0){
-                vis[neighbour]++;
-                q.push(neighbour);
-            }
-        }
-    }
-    return 0;
-}
+//     queue<int> q;
+//     q.push(1);
+
+//     while(!q.empty()){
+//         int node = q.front();
+//         q.pop();
+//         vis[node]++;
+//         cout<<node<<" ";
+
+//         for(int i=0; i<adj[node].size();i++){
+//             int neighbour = adj[node][i];
+//             if(vis[neighbour]==0){
+//                 vis[neighbour]++;
+//                 q.push(neighbour);
+//             }
+//         }
+//     }
+//     return 0;
+// }
