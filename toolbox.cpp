@@ -1,3 +1,5 @@
+// this file is for new syntaxes , tools and stl structures
+
 #include <bits/stdc++.h>
 using namespace std;
 
