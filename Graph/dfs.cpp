@@ -68,15 +68,15 @@ int main() {
 
 
 
-void dfs(int i, vector<int>& adj[], vector<int>& vis){
-    vis[i] = 1;
+// void dfs(int i, vector<int>& adj[], vector<int>& vis){
+//     vis[i] = 1;
 
-    for(int j=0; j<adj[i].size(); j++){
-        int node = adj[i][j];
-        if(vis[node] == 0) 
-            dfs(node, adj, vis);
-    }
-}
+//     for(int j=0; j<adj[i].size(); j++){
+//         int node = adj[i][j];
+//         if(vis[node] == 0) 
+//             dfs(node, adj, vis);
+//     }
+// }
 
 // int main(){
 //     int n, m;
