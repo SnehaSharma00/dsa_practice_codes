@@ -90,11 +90,11 @@ int main(){
         adj[v].push_back(u);
     }
 
-    vector<int>vis(n+1, 0);
+//     vector<int>vis(n+1, 0);
 
-    for(int i=1; i<=n;i++){
-        if(vis[i] ==0) dfs(i, adj, vis);
-    }
-    return ans;
+//     for(int i=1; i<=n;i++){
+//         if(vis[i] ==0) dfs(i, adj, vis);
+//     }
+//     return ans;
 
-}
+// }
