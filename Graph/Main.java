@@ -1,20 +1,8 @@
+//graph bfs in java
+
 import java.util.*;
 
 public class Main {
-
-    static void dfs(ArrayList<ArrayList<Integer>> adj,
-                    int[] vis, int node) {
-
-        vis[node] = 1;
-        System.out.print(node + " ");
-
-        for(int neighbour : adj.get(node)) {
-
-            if(vis[neighbour] == 0) {
-                dfs(adj, vis, neighbour);
-            }
-        }
-    }
 
     public static void main(String[] args) {
 
@@ -23,12 +11,14 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
+        // Adjacency list
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 
         for(int i = 0; i <= n; i++) {
             adj.add(new ArrayList<>());
         }
 
+        // Take m edges
         for(int i = 0; i < m; i++) {
 
             int u = sc.nextInt();
@@ -40,6 +30,27 @@ public class Main {
 
         int[] vis = new int[n + 1];
 
-        dfs(adj, vis, 1);
+        Queue<Integer> q = new LinkedList<>();
+
+        q.add(1);
+        vis[1] = 1;
+
+        while(!q.isEmpty()) {
+
+            int node = q.poll();
+
+            System.out.print(node + " ");
+
+            for(int i = 0; i < adj.get(node).size(); i++) {
+
+                int neighbour = adj.get(node).get(i);
+
+                if(vis[neighbour] == 0) {
+
+                    vis[neighbour] = 1;
+                    q.add(neighbour);
+                }
+            }
+        }
     }
 }
