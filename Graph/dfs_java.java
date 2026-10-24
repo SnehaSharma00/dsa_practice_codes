@@ -37,7 +37,6 @@ public class Main {
             adj.get(u).add(v);
             adj.get(v).add(u);
         }
-
         int[] vis = new int[n + 1];
 
         dfs(adj, vis, 1);

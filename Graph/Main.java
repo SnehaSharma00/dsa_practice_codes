@@ -31,12 +31,10 @@ public class Main {
         int[] vis = new int[n + 1];
 
         Queue<Integer> q = new LinkedList<>();
-
         q.add(1);
         vis[1] = 1;
 
         while(!q.isEmpty()) {
-
             int node = q.poll();
 
             System.out.print(node + " ");
@@ -46,7 +44,6 @@ public class Main {
                 int neighbour = adj.get(node).get(i);
 
                 if(vis[neighbour] == 0) {
-
                     vis[neighbour] = 1;
                     q.add(neighbour);
                 }
