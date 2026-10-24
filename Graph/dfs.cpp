@@ -48,7 +48,6 @@ int main() {
     cin>>n>>m>>x>>y;
 
     vector<vector<int>>adj(n+1);
-
     for(int i=0; i<m; i++){
         int u, v;
         cin>>u>>v;
@@ -56,9 +55,7 @@ int main() {
         adj[v].push_back(u);
     }
     vector<int>vis(n+1, 0);
-
     dfs(adj, vis, x );
-
     cout<<((vis[y] == 1)?"YES":"NO");
     return 0;
 }
