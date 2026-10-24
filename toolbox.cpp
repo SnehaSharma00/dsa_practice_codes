@@ -2,7 +2,6 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-
 //array of vectors
 vector<int> adj[n];
 
