@@ -58,10 +58,8 @@ int main() {
         adj[v].push_back(u);
     }
     vector<int>vis(n+1, 0);
-
     queue<int> q;
     q.push(1);
-
     while(!q.empty()){
         int node = q.front();
         q.pop();
